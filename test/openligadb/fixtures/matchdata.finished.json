@@ -1,0 +1,125 @@
+{
+  "MatchID": 58779,
+  "MatchDateTime": "2021-02-27T15:30:00",
+  "TimeZoneID": "W. Europe Standard Time",
+  "LeagueId": 4442,
+  "LeagueName": "1. Fußball-Bundesliga 2020/2021",
+  "MatchDateTimeUTC": "2021-02-27T14:30:00Z",
+  "Group": {
+    "GroupName": "23. Spieltag",
+    "GroupOrderID": 23,
+    "GroupID": 36508
+  },
+  "Team1": {
+    "TeamId": 40,
+    "TeamName": "FC Bayern München",
+    "ShortName": "Bayern",
+    "TeamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg/240px-Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg.png",
+    "TeamGroupName": null
+  },
+  "Team2": {
+    "TeamId": 65,
+    "TeamName": "1. FC Köln",
+    "ShortName": "Köln",
+    "TeamIconUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/FC_Cologne_logo.svg/901px-FC_Cologne_logo.svg.png",
+    "TeamGroupName": null
+  },
+  "LastUpdateDateTime": "2021-02-27T17:20:02.517",
+  "MatchIsFinished": true,
+  "MatchResults": [
+    {
+      "ResultID": 93909,
+      "ResultName": "Endergebnis",
+      "PointsTeam1": 5,
+      "PointsTeam2": 1,
+      "ResultOrderID": 1,
+      "ResultTypeID": 2,
+      "ResultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+    },
+    {
+      "ResultID": 93910,
+      "ResultName": "Halbzeit",
+      "PointsTeam1": 2,
+      "PointsTeam2": 0,
+      "ResultOrderID": 2,
+      "ResultTypeID": 1,
+      "ResultDescription": "Zwischenstand zur Halbzeit"
+    }
+  ],
+  "Goals": [
+    {
+      "GoalID": 87778,
+      "ScoreTeam1": 1,
+      "ScoreTeam2": 0,
+      "MatchMinute": 18,
+      "GoalGetterID": 18631,
+      "GoalGetterName": "E. Choupo-Moting",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87790,
+      "ScoreTeam1": 2,
+      "ScoreTeam2": 0,
+      "MatchMinute": 33,
+      "GoalGetterID": 18332,
+      "GoalGetterName": "R. Lewandowski",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87794,
+      "ScoreTeam1": 2,
+      "ScoreTeam2": 1,
+      "MatchMinute": 49,
+      "GoalGetterID": 18634,
+      "GoalGetterName": "E. Skhiri",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87796,
+      "ScoreTeam1": 3,
+      "ScoreTeam2": 1,
+      "MatchMinute": 65,
+      "GoalGetterID": 18332,
+      "GoalGetterName": "R. Lewandowski",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87798,
+      "ScoreTeam1": 4,
+      "ScoreTeam2": 1,
+      "MatchMinute": 82,
+      "GoalGetterID": 18461,
+      "GoalGetterName": "S. Gnabry",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87799,
+      "ScoreTeam1": 5,
+      "ScoreTeam2": 1,
+      "MatchMinute": 86,
+      "GoalGetterID": 18461,
+      "GoalGetterName": "S. Gnabry",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    }
+  ],
+  "Location": null,
+  "NumberOfViewers": null
+}

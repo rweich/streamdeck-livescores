@@ -1,0 +1,260 @@
+{
+  "MatchID": 60265,
+  "MatchDateTime": "2021-02-02T18:30:00",
+  "TimeZoneID": "W. Europe Standard Time",
+  "LeagueId": 4445,
+  "LeagueName": "DFB-Pokal 2020/21",
+  "MatchDateTimeUTC": "2021-02-02T17:30:00Z",
+  "Group": {
+    "GroupName": "Achtelfinale",
+    "GroupOrderID": 3,
+    "GroupID": 36594
+  },
+  "Team1": {
+    "TeamId": 104,
+    "TeamName": "Holstein Kiel",
+    "ShortName": "Kiel",
+    "TeamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Holstein_Kiel_Logo.svg/300px-Holstein_Kiel_Logo.svg.png",
+    "TeamGroupName": null
+  },
+  "Team2": {
+    "TeamId": 118,
+    "TeamName": "SV Darmstadt 98",
+    "ShortName": "Darmstadt",
+    "TeamIconUrl": "https://www.openligadb.de/images/teamicons/SV_Darmstadt_98.gif",
+    "TeamGroupName": null
+  },
+  "LastUpdateDateTime": "2021-02-02T21:15:17.103",
+  "MatchIsFinished": true,
+  "MatchResults": [
+    {
+      "ResultID": 93673,
+      "ResultName": "Endergebnis",
+      "PointsTeam1": 8,
+      "PointsTeam2": 7,
+      "ResultOrderID": 2,
+      "ResultTypeID": 2,
+      "ResultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+    },
+    {
+      "ResultID": 93674,
+      "ResultName": "Halbzeitergebnis",
+      "PointsTeam1": 0,
+      "PointsTeam2": 0,
+      "ResultOrderID": 1,
+      "ResultTypeID": 1,
+      "ResultDescription": "Ergebnis zur Halbzeitpause"
+    },
+    {
+      "ResultID": 93676,
+      "ResultName": "nach 90 Minuten",
+      "PointsTeam1": 1,
+      "PointsTeam2": 1,
+      "ResultOrderID": 3,
+      "ResultTypeID": 3,
+      "ResultDescription": "Ergebnis inkl. Nachspielzeit"
+    },
+    {
+      "ResultID": 93682,
+      "ResultName": "nach Verlängerung",
+      "PointsTeam1": 1,
+      "PointsTeam2": 1,
+      "ResultOrderID": 4,
+      "ResultTypeID": 4,
+      "ResultDescription": "Ergebnis nach Verlängerung (ohne Elfmeterschießen)"
+    },
+    {
+      "ResultID": 93683,
+      "ResultName": "nach Elfmeterschießen",
+      "PointsTeam1": 8,
+      "PointsTeam2": 7,
+      "ResultOrderID": 5,
+      "ResultTypeID": 5,
+      "ResultDescription": "Ergebnis nach Elfmeterschießen"
+    }
+  ],
+  "Goals": [
+    {
+      "GoalID": 87424,
+      "ScoreTeam1": 1,
+      "ScoreTeam2": 0,
+      "MatchMinute": 58,
+      "GoalGetterID": 18335,
+      "GoalGetterName": "J. Serra",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87425,
+      "ScoreTeam1": 1,
+      "ScoreTeam2": 1,
+      "MatchMinute": 86,
+      "GoalGetterID": 18364,
+      "GoalGetterName": "S. Dursun",
+      "IsPenalty": false,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87432,
+      "ScoreTeam1": 1,
+      "ScoreTeam2": 2,
+      "MatchMinute": null,
+      "GoalGetterID": 18364,
+      "GoalGetterName": "S. Dursun",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87433,
+      "ScoreTeam1": 2,
+      "ScoreTeam2": 2,
+      "MatchMinute": null,
+      "GoalGetterID": 18428,
+      "GoalGetterName": "A. Arslan",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87434,
+      "ScoreTeam1": 2,
+      "ScoreTeam2": 3,
+      "MatchMinute": null,
+      "GoalGetterID": 18557,
+      "GoalGetterName": "F. Holland",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87435,
+      "ScoreTeam1": 3,
+      "ScoreTeam2": 3,
+      "MatchMinute": null,
+      "GoalGetterID": 18335,
+      "GoalGetterName": "J. Serra",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87436,
+      "ScoreTeam1": 3,
+      "ScoreTeam2": 4,
+      "MatchMinute": null,
+      "GoalGetterID": 18558,
+      "GoalGetterName": "L. Mai",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87437,
+      "ScoreTeam1": 4,
+      "ScoreTeam2": 4,
+      "MatchMinute": null,
+      "GoalGetterID": 18559,
+      "GoalGetterName": "F. Porath",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87438,
+      "ScoreTeam1": 4,
+      "ScoreTeam2": 5,
+      "MatchMinute": null,
+      "GoalGetterID": 18560,
+      "GoalGetterName": "S. Paik",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87439,
+      "ScoreTeam1": 5,
+      "ScoreTeam2": 5,
+      "MatchMinute": null,
+      "GoalGetterID": 18561,
+      "GoalGetterName": "L. Sung",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87440,
+      "ScoreTeam1": 5,
+      "ScoreTeam2": 6,
+      "MatchMinute": null,
+      "GoalGetterID": 18526,
+      "GoalGetterName": "I. Höhn",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87441,
+      "ScoreTeam1": 6,
+      "ScoreTeam2": 6,
+      "MatchMinute": null,
+      "GoalGetterID": 18307,
+      "GoalGetterName": "F. Bartels",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87442,
+      "ScoreTeam1": 6,
+      "ScoreTeam2": 7,
+      "MatchMinute": null,
+      "GoalGetterID": 18562,
+      "GoalGetterName": "N. Rapp",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87443,
+      "ScoreTeam1": 7,
+      "ScoreTeam2": 7,
+      "MatchMinute": null,
+      "GoalGetterID": 18563,
+      "GoalGetterName": "M. Kirkeskov",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    },
+    {
+      "GoalID": 87444,
+      "ScoreTeam1": 8,
+      "ScoreTeam2": 7,
+      "MatchMinute": null,
+      "GoalGetterID": 18564,
+      "GoalGetterName": "S. Lorenz",
+      "IsPenalty": true,
+      "IsOwnGoal": false,
+      "IsOvertime": false,
+      "Comment": null
+    }
+  ],
+  "Location": null,
+  "NumberOfViewers": null
+}
