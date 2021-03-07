@@ -1,58 +1,24 @@
-import { assertType, GetSettingsEvent, IncomingEvents, SetSettingsEvent, Streamdeck } from '@rweich/streamdeck-ts';
-import { is } from 'ts-type-guards';
-import { SettingsType } from './SettingsType';
+import { assertType, GetSettingsEvent, IncomingEvents, Streamdeck } from '@rweich/streamdeck-ts';
+import ApiFactory from './api/ApiFactory';
+import logger from './logger';
+import PiHandler from './PiHandler';
+import { PluginSettingsSchema, PluginSettingsType } from './SettingsType';
 
-const pi = new Streamdeck().propertyinspector();
-const defaultMatchId = '58784';
+const pi = new Streamdeck(logger.getLogger('streamdeck')).propertyinspector();
 
-const getInput = (name: string): HTMLInputElement | null => {
-  const input = document.querySelector("input[name='" + name + "']");
-  if (is(HTMLInputElement)(input)) {
-    return input;
-  }
-  return null;
-};
-const getInputVal = (name: string): string | null => {
-  const input = getInput(name);
-  return input ? input.value : null;
-};
-const setInputVal = (name: string, value: string): void => {
-  const input = getInput(name);
-  if (input) {
-    input.value = value;
-  }
-};
-const onInput = (event: Event): void => {
-  console.log('item changed', event.target, 'event:', event);
-  if (pi.context === null) {
-    console.error('pi has no context or action!', pi.context, pi.action);
-    return;
-  }
-  if (!is(HTMLInputElement)(event.target)) {
-    return;
-  }
-  pi.sendEvent(
-    new SetSettingsEvent(pi.context, {
-      matchId: getInputVal('matchId') || defaultMatchId,
-    }),
-  );
-};
-
-pi.on(IncomingEvents.OnWebsocketOpen, (event) => {
-  pi.sendEvent(new GetSettingsEvent(event.uuid));
-  Array.from(document.querySelectorAll('.sdpi-item-value')).forEach((input) => {
-    if (is(HTMLInputElement)(input)) {
-      input.addEventListener('input', onInput);
-    }
-  });
-});
+pi.on(IncomingEvents.OnWebsocketOpen, (event) => pi.sendEvent(new GetSettingsEvent(event.uuid)));
 pi.on(IncomingEvents.DidReceiveSettings, (event) => {
+  let settings: PluginSettingsType;
   try {
-    assertType(SettingsType, event.settings);
-    setInputVal('matchId', event.settings.matchId || defaultMatchId);
+    assertType(PluginSettingsSchema, event.settings);
+    logger.debug('received valid settings', event.settings);
+    settings = event.settings;
   } catch (e) {
-    setInputVal('matchId', defaultMatchId);
+    logger.error('received invalid settings', event.settings);
+    settings = { apiKey: 'openligadb' };
   }
+  const piHandler = new PiHandler(pi, settings, new ApiFactory(logger).registry(), logger);
+  piHandler.appendForm(document.querySelector('.sdpi-wrapper') ?? document.body);
 });
 
 export default pi;
