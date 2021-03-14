@@ -11,5 +11,21 @@ module.exports = {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
   },
-  rules: {},
+  rules: {
+    '@typescript-eslint/member-ordering': [
+      'error',
+      {
+        "default": [
+          "signature",
+          "abstract-field",
+          "static-field",
+          "instance-field",
+          "constructor",
+          "abstract-method",
+          "static-method",
+          "instance-method",
+        ]
+      }
+    ]
+  },
 };

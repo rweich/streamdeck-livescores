@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import 'mocha';
 import sinon, { SinonSandbox } from 'sinon';
-import ImageLoader from '../src/ImageLoader';
+import ImageLoader from '../src/plugin/ImageLoader';
 
 const virtualConsole = new VirtualConsole();
 const window = new JSDOM('<!doctype html>', {
