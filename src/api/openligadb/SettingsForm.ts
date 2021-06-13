@@ -18,7 +18,7 @@ export default class SettingsForm implements SettingsFormInterface {
         league: SettingsLeagueEnum.BUNDESLIGA,
         matchId: '',
         matchOfLeague: '1',
-        type: SettingsTypeEnum.SINGLE_MATCH,
+        type: SettingsTypeEnum.MATCH_DAY,
       };
     }
     this.formBuilder = this.createFormBuilder(this.settings);
@@ -57,6 +57,7 @@ export default class SettingsForm implements SettingsFormInterface {
         .setLabel('League')
         .addOption('Bundesliga', SettingsLeagueEnum.BUNDESLIGA)
         .addOption('2. Bundesliga', SettingsLeagueEnum.BUNDESLIGA_2)
+        .addOption('Euro 2020', SettingsLeagueEnum.EURO_2020)
         .showOn(() => builder.getFormData().type === SettingsTypeEnum.MATCH_DAY),
     );
     builder.addElement(
@@ -73,6 +74,9 @@ export default class SettingsForm implements SettingsFormInterface {
         .addOption('7', '7')
         .addOption('8', '8')
         .addOption('9', '9')
+        .addOption('10', '10')
+        .addOption('11', '11')
+        .addOption('12', '12')
         .showOn(() => builder.getFormData().type === SettingsTypeEnum.MATCH_DAY),
     );
     return builder;

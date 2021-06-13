@@ -58,7 +58,7 @@ export default class ScoresPlugin {
         );
       } else if (matchData.updateAt) {
         const timeoutMs: number = matchData.updateAt.getTime() - Date.now();
-        this.logger.info('match has not yet started - setting timeout at ', matchData.updateAt.toLocaleString());
+        this.logger.info('received time for next update - setting timeout at ', matchData.updateAt.toLocaleString());
         setTimeout(() => this.initContextUpdater(contextData), timeoutMs);
       }
     });
