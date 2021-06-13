@@ -1,8 +1,9 @@
-import { assertType } from '@rweich/streamdeck-ts';
+import { SettingsLeagueEnum, SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
+
 import { EventsEnum } from '../../formbuilder/EventsEnum';
 import FormBuilder from '../../formbuilder/FormBuilder';
 import SettingsFormInterface from '../SettingsFormInterface';
-import { SettingsLeagueEnum, SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
+import assertType from '../../AssertType';
 
 export default class SettingsForm implements SettingsFormInterface {
   private readonly settings: SettingsType;
@@ -12,12 +13,12 @@ export default class SettingsForm implements SettingsFormInterface {
     try {
       assertType(SettingsSchema, settings);
       this.settings = settings;
-    } catch (e) {
+    } catch {
       this.settings = {
-        type: SettingsTypeEnum.SINGLE_MATCH,
-        matchId: '',
         league: SettingsLeagueEnum.BUNDESLIGA,
+        matchId: '',
         matchOfLeague: '1',
+        type: SettingsTypeEnum.SINGLE_MATCH,
       };
     }
     this.formBuilder = this.createFormBuilder(this.settings);

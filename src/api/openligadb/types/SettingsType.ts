@@ -11,9 +11,8 @@ export enum SettingsLeagueEnum {
 }
 
 export const SettingsSchema = Type.Object({
-  type: Type.Enum(SettingsTypeEnum),
-  matchId: Type.String(),
   league: Type.Enum(SettingsLeagueEnum),
+  matchId: Type.String(),
   matchOfLeague: Type.Union([
     Type.Literal('1'),
     Type.Literal('2'),
@@ -25,6 +24,7 @@ export const SettingsSchema = Type.Object({
     Type.Literal('8'),
     Type.Literal('9'),
   ]),
+  type: Type.Enum(SettingsTypeEnum),
 });
 
 export type SettingsType = {

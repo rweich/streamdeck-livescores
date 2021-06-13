@@ -6,17 +6,33 @@
   "author": "rweich",
   "license": "MIT",
   "scripts": {
-    "ci": "yarn type-check && yarn lint && yarn test && yarn set-plugin-version 0.0.0-dev",
-    "clean": "rimraf ./dist/*",
     "build": "yarn clean && webpack --mode=development",
     "build-prod": "yarn clean && webpack --mode=production",
-    "lint": "eslint ./src/**/*.ts",
-    "lint-tests": "eslint test/**/*.ts",
+    "ci": "yarn type-check && yarn lint && yarn test && yarn set-plugin-version 0.0.0-dev",
+    "clean": "rimraf ./dist/*",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint-tests": "eslint 'test/**/*.ts'",
     "prepare": "husky install",
     "set-plugin-version": "ts-node build/scripts/set-plugin-version.ts",
     "test": "mocha",
     "type-check": "tsc --noEmit",
     "update-template": "update-template https://github.com/rweich/streamdeck-ts-template"
+  },
+  "dependencies": {
+    "@rweich/streamdeck-events": "^1.3.1",
+    "@rweich/streamdeck-ts": "^2.1.0",
+    "@sinclair/typebox": "^0.16.7",
+    "ajv": "^8.5.0",
+    "axios": "^0.21.1",
+    "axios-cache-adapter": "^2.7.3",
+    "axios-logger": "^2.5.0",
+    "dayjs": "^1.10.5",
+    "eventemitter3": "^4.0.7",
+    "loglevel": "^1.7.1",
+    "loglevel-plugin-prefix": "^0.8.4",
+    "p-queue": "^7.1.0",
+    "ts-log": "^2.2.3",
+    "ts-type-guards": "^0.7.0"
   },
   "devDependencies": {
     "@amille/semantic-release-plugins": "^3.3.5",
@@ -26,11 +42,12 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@commitlint/cli": "^12.0.1",
-    "@rweich/streamdeck-ts": "^1.0.1",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@rweich/eslint-config": "^1.1.1",
+    "@rweich/prettier-config": "^1.0.1",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
-    "@sinclair/typebox": "^0.12.9",
     "@types/chai": "^4.2.15",
     "@types/chai-json-schema": "^1.4.6",
     "@types/copy-webpack-plugin": "^6.4.0",
@@ -38,55 +55,46 @@
     "@types/jsonfile": "^6.0.0",
     "@types/mocha": "^8.2.1",
     "@types/sinon": "^9.0.10",
-    "@typescript-eslint/eslint-plugin": "^4.15.0",
-    "@typescript-eslint/parser": "^4.15.0",
-    "ajv": "^6",
-    "axios": "^0.21.1",
-    "axios-cache-adapter": "^2.7.3",
-    "axios-logger": "^2.5.0",
     "babel-loader": "^8.2.2",
-    "better-ajv-errors": "^0.7.0",
     "canvas": "^2.6.1",
     "chai": "^4.3.0",
     "chai-json-schema": "^1.5.1",
+    "conventional-changelog-conventionalcommits": "^4.6.0",
     "copy-webpack-plugin": "^7.0.0",
-    "dayjs": "^1.10.4",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^8.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
     "esm": "^3.2.25",
-    "eventemitter3": "^4.0.7",
     "husky": "^5.0.9",
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "jsonfile": "^6.1.0",
     "lint-staged": "^10.5.4",
-    "loglevel": "^1.7.1",
-    "loglevel-plugin-prefix": "^0.8.4",
     "mocha": "^8.3.0",
-    "organize-imports-cli": "^0.8.0",
-    "p-queue": "^6.6.2",
-    "prettier": "npm:@btmills/prettier",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.3.9",
     "sinon": "^9.2.4",
-    "ts-log": "^2.2.3",
     "ts-node": "^9.1.1",
-    "ts-type-guards": "^0.7.0",
     "typescript": "^4.1.3",
     "update-template": "^1.3.1",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.0"
   },
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rweich/streamdeck-livescores.git"
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": "rweich/streamdeck-livescores",
+  "bugs": "https://github.com/rweich/streamdeck-livescores/issues",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "@rweich"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
-      "organize-imports-cli",
-      "prettier --write"
+      "prettier --write",
+      "eslint --quiet --fix"
     ]
-  }
+  },
+  "prettier": "@rweich/prettier-config"
 }

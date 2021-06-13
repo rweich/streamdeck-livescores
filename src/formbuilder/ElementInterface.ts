@@ -1,6 +1,6 @@
+import HtmlElementInterface from './HtmlElementInterface';
 import { ValueType } from './elements/ValueType';
-import HTMLElementInterface from './HTMLElementInterface';
 
-export default interface ElementInterface extends HTMLElementInterface {
+export default interface ElementInterface extends HtmlElementInterface {
   value: ValueType;
 }

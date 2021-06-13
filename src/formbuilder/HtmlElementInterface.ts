@@ -1,5 +1,5 @@
 // TODO: rename?
-export default interface HTMLElementInterface {
+export default interface HtmlElementInterface {
   getHtmlElement(): HTMLElement;
   setValue(value: string | Record<string, string>): void;
 }

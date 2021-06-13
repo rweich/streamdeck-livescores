@@ -1,5 +1,5 @@
-import ScoreGeneratorInterface from '../api/ScoreGeneratorInterface';
 import { PluginSettingsType } from '../SettingsType';
+import ScoreGeneratorInterface from '../api/ScoreGeneratorInterface';
 
 export default class ContextData {
   public readonly context: string;
