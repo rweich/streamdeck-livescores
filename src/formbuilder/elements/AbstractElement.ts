@@ -1,22 +1,22 @@
-import EventEmitter from 'eventemitter3';
-import { is } from 'ts-type-guards';
 import ElementInterface from '../ElementInterface';
+import EventEmitter from 'eventemitter3';
 import { EventsEnum } from '../EventsEnum';
 import { ValueType } from './ValueType';
+import { is } from 'ts-type-guards';
 
 export default abstract class AbstractElement implements ElementInterface {
-  private _value: ValueType = '';
+  protected placeholder = '';
+  private readonly htmlContainer: HTMLElement;
   private label = '';
   private eventEmitter = new EventEmitter();
-  private readonly htmlContainer: HTMLElement;
-  protected placeholder = '';
-
-  get value(): ValueType {
-    return this._value;
-  }
+  private elementValue: ValueType = '';
 
   constructor() {
     this.htmlContainer = document.createElement('div');
+  }
+
+  get value(): ValueType {
+    return this.elementValue;
   }
 
   protected abstract getInput(): HTMLElement;
@@ -33,7 +33,7 @@ export default abstract class AbstractElement implements ElementInterface {
   }
 
   public setValue(value: ValueType): void {
-    this._value = value;
+    this.elementValue = value;
     const input = this.getInput();
     if (typeof value === 'string' && (is(HTMLInputElement)(input) || is(HTMLSelectElement)(input))) {
       input.value = value;
@@ -66,9 +66,9 @@ export default abstract class AbstractElement implements ElementInterface {
     this.eventEmitter.emit(EventsEnum.CHANGE_SETTINGS);
   }
 
-  protected createLabel(): HTMLElement | null {
+  protected createLabel(): HTMLElement | undefined {
     if (!this.label) {
-      return null;
+      return;
     }
     const label = document.createElement('div');
     label.classList.add('sdpi-item-label');

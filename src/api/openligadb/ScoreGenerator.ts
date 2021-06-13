@@ -1,11 +1,12 @@
-import { assertType } from '@rweich/streamdeck-ts';
-import dayjs from 'dayjs';
-import { Logger } from 'ts-log';
-import ScoreGeneratorInterface from '../ScoreGeneratorInterface';
 import ScoreInterface, { MatchIsType } from '../ScoreInterface';
-import Api from './Api';
-import { MatchDataInterface } from './types/MatchDataType';
 import { SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
+
+import Api from './Api';
+import { Logger } from 'ts-log';
+import { MatchDataInterface } from './types/MatchDataType';
+import ScoreGeneratorInterface from '../ScoreGeneratorInterface';
+import assertType from '../../AssertType';
+import dayjs from 'dayjs';
 
 export default class ScoreGenerator implements ScoreGeneratorInterface {
   private readonly api: Api;
@@ -20,30 +21,30 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
     try {
       assertType(SettingsSchema, settings);
       return true;
-    } catch (e) {
+    } catch {
       return false;
     }
   }
 
   private static getFinalResult(data: MatchDataInterface) {
-    return data.MatchResults.find((res) => res.ResultTypeID === 2);
+    return data.MatchResults.find((result) => result.ResultTypeID === 2);
   }
 
   private static convertToMatchResult(data: MatchDataInterface): ScoreInterface {
     const finalResult = ScoreGenerator.getFinalResult(data);
     const result: ScoreInterface = {
+      matchIs: ScoreGenerator.convertMatchIs(data),
+      startDate: new Date(data.MatchDateTimeUTC),
       team1: {
-        name: data.Team1.TeamName,
         iconUrl: data.Team1.TeamIconUrl,
+        name: data.Team1.TeamName,
         points: finalResult?.PointsTeam1 || 0,
       },
       team2: {
-        name: data.Team2.TeamName,
         iconUrl: data.Team2.TeamIconUrl,
+        name: data.Team2.TeamName,
         points: finalResult?.PointsTeam2 || 0,
       },
-      startDate: new Date(data.MatchDateTimeUTC),
-      matchIs: ScoreGenerator.convertMatchIs(data),
     };
     if (result.matchIs.running) {
       result.updateIntervalSeconds = 30;
@@ -64,13 +65,28 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
 
   private static convertMatchIs(data: MatchDataInterface): MatchIsType {
     return {
-      notStarted: ScoreGenerator.isMatchInFuture(data),
       finished: data.MatchIsFinished,
+      notStarted: ScoreGenerator.isMatchInFuture(data),
       running: ScoreGenerator.isMatchRunning(data),
     };
   }
 
-  private updateFinishedMatchdayResults(result: ScoreInterface | null): ScoreInterface | null {
+  public generateScore(settings: unknown): Promise<ScoreInterface | undefined> {
+    if (!ScoreGenerator.isSettingsType(settings)) {
+      this.logger.error('received invalid settings!', settings);
+      // eslint-disable-next-line unicorn/no-useless-undefined
+      return Promise.resolve(undefined);
+    }
+    if (settings.type === SettingsTypeEnum.MATCH_DAY) {
+      return this.api
+        .fetchMatchDay(settings.league)
+        .then((matches) => ScoreGenerator.convertToMatchResult(matches[Number.parseInt(settings.matchOfLeague) - 1]))
+        .then((result) => this.updateFinishedMatchdayResults(result));
+    }
+    return this.createScoreForMatchId(settings.matchId);
+  }
+
+  private updateFinishedMatchdayResults(result: ScoreInterface | undefined): ScoreInterface | undefined {
     if (!result || result.matchIs.finished) {
       return result;
     }
@@ -82,27 +98,14 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
     return result;
   }
 
-  public generateScore(settings: unknown): Promise<ScoreInterface | null> {
-    if (!ScoreGenerator.isSettingsType(settings)) {
-      this.logger.error('received invalid settings!', settings);
-      return Promise.resolve(null);
-    }
-    if (settings.type === SettingsTypeEnum.MATCH_DAY) {
-      return this.api
-        .fetchMatchDay(settings.league)
-        .then((matches) => ScoreGenerator.convertToMatchResult(matches[parseInt(settings.matchOfLeague) - 1]))
-        .then((result) => this.updateFinishedMatchdayResults(result));
-    }
-    return this.createScoreForMatchId(settings.matchId);
-  }
-
-  private createScoreForMatchId(matchId: string): Promise<ScoreInterface | null> {
+  private createScoreForMatchId(matchId: string): Promise<ScoreInterface | undefined> {
     return this.api
       .fetchMatchData(matchId)
       .then((data) => ScoreGenerator.convertToMatchResult(data))
       .catch((error) => {
         this.logger.error(error);
-        return null;
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        return undefined;
       });
   }
 }

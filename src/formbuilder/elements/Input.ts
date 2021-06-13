@@ -1,14 +1,14 @@
-import { is } from 'ts-type-guards';
 import AbstractElement from './AbstractElement';
+import { is } from 'ts-type-guards';
 
 export default class Input extends AbstractElement {
-  private input: HTMLInputElement | null = null;
+  private input: HTMLInputElement | undefined;
 
   protected getInput(): HTMLElement {
     if (!this.input) {
       this.input = document.createElement('input');
       this.input.classList.add('sdpi-item-value');
-      this.input.addEventListener('input', (e) => this.onInput(e));
+      this.input.addEventListener('input', (error) => this.onInput(error));
     }
     if (this.placeholder !== '') {
       this.input.placeholder = this.placeholder;

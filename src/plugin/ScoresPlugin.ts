@@ -1,17 +1,12 @@
-import {
-  assertType,
-  DidReceiveSettingsEvent,
-  GetSettingsEvent,
-  IncomingEvents,
-  IncomingPluginEvents,
-} from '@rweich/streamdeck-ts';
-import Plugin from '@rweich/streamdeck-ts/dist/Plugin';
-import { Logger } from 'ts-log';
 import ApiRegistry from '../api/ApiRegistry';
-import ScoreInterface from '../api/ScoreInterface';
-import { PluginSettingsSchema } from '../SettingsType';
 import ContextData from './ContextData';
+import { DidReceiveSettingsEvent } from '@rweich/streamdeck-events/dist/Events/Received';
 import Display from './Display';
+import { Logger } from 'ts-log';
+import { Plugin } from '@rweich/streamdeck-ts';
+import { PluginSettingsSchema } from '../SettingsType';
+import ScoreInterface from '../api/ScoreInterface';
+import assertType from '../AssertType';
 
 export default class ScoresPlugin {
   private plugin: Plugin;
@@ -28,10 +23,10 @@ export default class ScoresPlugin {
   }
 
   public init(): void {
-    this.plugin.on(IncomingPluginEvents.WillAppear, (event) => {
-      this.plugin.sendEvent(new GetSettingsEvent(event.context));
+    this.plugin.on('willAppear', (event) => {
+      this.plugin.getSettings(event.context);
     });
-    this.plugin.on(IncomingEvents.DidReceiveSettings, (event) => this.onDidReceiveSettings(event));
+    this.plugin.on('didReceiveSettings', (event) => this.onDidReceiveSettings(event));
   }
 
   private onDidReceiveSettings(event: DidReceiveSettingsEvent): void {
@@ -39,8 +34,8 @@ export default class ScoresPlugin {
     this.contextData.get(event.context)?.clearInterval();
     try {
       assertType(PluginSettingsSchema, event.settings);
-    } catch (e) {
-      this.logger.error('received invalid settings', event.settings);
+    } catch (error) {
+      this.logger.error(error);
       return;
     }
     const data = new ContextData(
@@ -80,14 +75,18 @@ export default class ScoresPlugin {
 
   private updateMatchData(contextData: ContextData, onSuccess?: (result: ScoreInterface) => void): void {
     this.logger.debug('updating match data ...');
-    contextData.scoreGenerator.generateScore(contextData.settings.payload).then((matchData) => {
-      if (matchData === null) {
-        return;
-      }
-      this.display.displayMatch(matchData, contextData.context);
-      if (onSuccess) {
-        onSuccess(matchData);
-      }
-    });
+    contextData.scoreGenerator
+      .generateScore(contextData.settings.payload)
+      .then((matchData) => {
+        if (matchData === undefined) {
+          return;
+        }
+        this.display.displayMatch(matchData, contextData.context);
+        if (onSuccess) {
+          onSuccess(matchData);
+        }
+        return matchData;
+      })
+      .catch((error) => this.logger.error(error));
   }
 }

@@ -1,9 +1,9 @@
-import { is } from 'ts-type-guards';
 import AbstractElement from './AbstractElement';
+import { is } from 'ts-type-guards';
 
 export default class Dropdown extends AbstractElement {
   private options: Record<'label' | 'value', string>[] = [];
-  private select: HTMLSelectElement | null = null;
+  private select: HTMLSelectElement | undefined;
 
   public addOption(label: string, value: string): this {
     this.options.push({ label, value });
@@ -16,15 +16,16 @@ export default class Dropdown extends AbstractElement {
     }
     this.select = document.createElement('select');
     this.select.classList.add('sdpi-item-value', 'select');
-    this.options
-      .map((opt) => {
-        const option: HTMLOptionElement = document.createElement('option');
-        option.value = opt.value;
-        option.text = opt.label;
-        return option;
-      })
-      .forEach((opt) => this.select?.append(opt));
-    this.select.addEventListener('change', (e) => this.onChange(e));
+    const optionElements = this.options.map((opt) => {
+      const option: HTMLOptionElement = document.createElement('option');
+      option.value = opt.value;
+      option.text = opt.label;
+      return option;
+    });
+    for (const optionElement of optionElements) {
+      this.select?.append(optionElement);
+    }
+    this.select.addEventListener('change', (error) => this.onChange(error));
     return this.select;
   }
 

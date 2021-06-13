@@ -1,5 +1,6 @@
 import { Static, Type } from '@sinclair/typebox';
 
+/* eslint-disable sort-keys */
 export const MatchDataType = Type.Object({
   MatchID: Type.Number(),
   MatchDateTime: Type.String(),
@@ -56,5 +57,6 @@ export const MatchDataType = Type.Object({
   Location: Type.Any(),
   NumberOfViewers: Type.Any(),
 });
+/* eslint-enable sort-keys */
 
 export type MatchDataInterface = Static<typeof MatchDataType>;

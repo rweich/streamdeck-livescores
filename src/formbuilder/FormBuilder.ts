@@ -1,12 +1,12 @@
-import EventEmitter from 'eventemitter3';
-import ElementGroupInterface from './ElementGroupInterface';
-import ElementInterface from './ElementInterface';
 import AbstractElement from './elements/AbstractElement';
 import Dropdown from './elements/Dropdown';
-import Input from './elements/Input';
+import ElementGroupInterface from './ElementGroupInterface';
+import ElementInterface from './ElementInterface';
+import EventEmitter from 'eventemitter3';
 import { EventsEnum } from './EventsEnum';
 import { FormDataType } from './FormDataType';
-import HTMLElementInterface from './HTMLElementInterface';
+import HtmlElementInterface from './HtmlElementInterface';
+import Input from './elements/Input';
 
 export default class FormBuilder<T extends FormDataType> {
   private readonly formData: T;
@@ -19,29 +19,32 @@ export default class FormBuilder<T extends FormDataType> {
 
   public getFormData(): T {
     const data = this.formData;
-    for (const i in this.elements) {
-      const element = this.elements[i];
+    for (const index in this.elements) {
+      const element = this.elements[index];
       if (this.elementNotUndefined(element)) {
-        data[i] = element.value as T[typeof i];
+        data[index] = element.value as T[typeof index];
       }
     }
     return data;
   }
 
   public appendTo(element: HTMLElement): void {
-    Object.values(this.elements)
-      .filter(<T extends HTMLElementInterface>(el: T | undefined): el is T => el !== undefined)
-      .forEach((el) => element.append(el.getHtmlElement()));
+    const formElements = Object.values(this.elements).filter(
+      <T extends HtmlElementInterface>(formElement: T | undefined): formElement is T => formElement !== undefined,
+    );
+    for (const formElement of formElements) {
+      element.append(formElement.getHtmlElement());
+    }
   }
 
   public addElement<K extends keyof T>(
     name: K,
-    val: T[K] extends Record<string, string>
+    value: T[K] extends Record<string, string>
       ? ElementGroupInterface & { elements: { [x in keyof T[K]]: ElementInterface } }
       : ElementInterface,
   ): void {
-    this.elements[name] = val;
-    val.setValue(this.formData[name]);
+    this.elements[name] = value;
+    value.setValue(this.formData[name]);
   }
 
   public createInput(): Input {
@@ -67,8 +70,8 @@ export default class FormBuilder<T extends FormDataType> {
   }
 
   private elementNotUndefined(
-    el: ElementInterface | ElementGroupInterface | undefined,
-  ): el is ElementInterface | ElementGroupInterface {
-    return el !== undefined && el.value !== undefined;
+    element: ElementInterface | ElementGroupInterface | undefined,
+  ): element is ElementInterface | ElementGroupInterface {
+    return element !== undefined && element.value !== undefined;
   }
 }

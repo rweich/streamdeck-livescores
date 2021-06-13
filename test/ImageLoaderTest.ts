@@ -1,8 +1,10 @@
-import { expect } from 'chai';
-import { JSDOM, VirtualConsole } from 'jsdom';
 import 'mocha';
+
+import { JSDOM, VirtualConsole } from 'jsdom';
 import sinon, { SinonSandbox } from 'sinon';
+
 import ImageLoader from '../src/plugin/ImageLoader';
+import { expect } from 'chai';
 
 const virtualConsole = new VirtualConsole();
 const window = new JSDOM('<!doctype html>', {
@@ -22,32 +24,32 @@ describe('Test ImageLoader', () => {
       sandbox.restore();
     });
 
-    it('should fetch and return an image', (done) => {
+    it('should fetch and return an image', () => {
       const loader = new ImageLoader();
       const spy = sandbox.spy(global, 'Image');
-      loader.loadImage('assets/images/action1.icon@2x.png').then((image) => {
+      return loader.loadImage('assets/images/action1.icon@2x.png').then((image) => {
         expect(image?.complete).to.be.true;
         expect(spy.callCount).to.equal(1);
-        done();
+        return true;
       });
     });
-    it('should fetch and return multiple images', (done) => {
+    it('should fetch and return multiple images', () => {
       const loader = new ImageLoader();
       const spy = sandbox.spy(global, 'Image');
-      Promise.all([
+      return Promise.all([
         loader.loadImage('assets/images/action1.icon.png'),
         loader.loadImage('assets/images/action1.icon@2x.png'),
       ]).then((images) => {
         expect(images.length).to.equal(2);
         images.map((image) => expect(image?.complete).to.be.true);
         expect(spy.callCount).to.equal(2);
-        done();
+        return true;
       });
     });
-    it('should cache images that it has fetched before', (done) => {
+    it('should cache images that it has fetched before', () => {
       const loader = new ImageLoader();
       const spy = sandbox.spy(global, 'Image');
-      Promise.all([
+      return Promise.all([
         loader.loadImage('assets/images/action1.icon.png'),
         loader.loadImage('assets/images/action1.icon@2x.png'),
       ])
@@ -64,15 +66,14 @@ describe('Test ImageLoader', () => {
           expect(images.length).to.equal(3);
           images.map((image) => expect(image?.complete).to.be.true);
           expect(spy.callCount).to.equal(1);
-          done();
-        })
-        .catch((e) => done(e));
+          return true;
+        });
     });
-    it('should return null if the image could not be found', (done) => {
+    it('should return null if the image could not be found', () => {
       const loader = new ImageLoader();
-      loader.loadImage('assets/images/notfound.png').then((image) => {
-        expect(image).to.be.null;
-        done();
+      return loader.loadImage('assets/images/notfound.png').then((image) => {
+        expect(image).to.be.undefined;
+        return true;
       });
     });
   });

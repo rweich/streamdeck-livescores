@@ -1,11 +1,11 @@
-import { SetSettingsEvent } from '@rweich/streamdeck-ts';
-import PropertyInspector from '@rweich/streamdeck-ts/dist/PropertyInspector';
-import { Logger } from 'ts-log';
-import { is } from 'ts-type-guards';
+import { FormSettingsType, PluginSettingsType } from './SettingsType';
+
 import ApiRegistry from './api/ApiRegistry';
 import { EventsEnum } from './formbuilder/EventsEnum';
 import FormBuilder from './formbuilder/FormBuilder';
-import { FormSettingsType, PluginSettingsType } from './SettingsType';
+import { Logger } from 'ts-log';
+import PropertyInspector from '@rweich/streamdeck-ts/dist/PropertyInspector';
+import { is } from 'ts-type-guards';
 
 export default class PiHandler {
   private readonly pi: PropertyInspector;
@@ -24,11 +24,13 @@ export default class PiHandler {
     this.formBuilder = new FormBuilder(settings);
 
     const apiSelector = this.formBuilder.createDropdown().setLabel('Match-Api');
-    this.apiRegistry.getFactories().forEach((f) => apiSelector.addOption(f.apiName, f.apiKey));
+    for (const factory of this.apiRegistry.getFactories()) {
+      apiSelector.addOption(factory.apiName, factory.apiKey);
+    }
     this.formBuilder.addElement('apiKey', apiSelector);
     this.formBuilder.on(EventsEnum.CHANGE_SETTINGS, () => {
       const formData = this.formBuilder.getFormData();
-      Array.from(this.apiFormContainer.children).map((c) => c.remove());
+      Array.from(this.apiFormContainer.children, (c) => c.remove());
       this.logger.info('got changesettings event', formData);
       this.updateApiSettings();
     });
@@ -79,15 +81,10 @@ export default class PiHandler {
 
   private sendSettings(apiKey: string, payload: unknown): void {
     this.logger.info('sending settings', apiKey, payload);
-    if (this.pi.context === null) {
-      this.logger.error('pi has no context or action!', this.pi.context, this.pi.action);
+    if (this.pi.pluginUUID === undefined) {
+      this.logger.error('pi has no context or action!', this.pi.pluginUUID, this.pi.info);
       return;
     }
-    this.pi.sendEvent(
-      new SetSettingsEvent(this.pi.context, {
-        apiKey,
-        payload,
-      }),
-    );
+    this.pi.setSettings(this.pi.pluginUUID, { apiKey, payload });
   }
 }

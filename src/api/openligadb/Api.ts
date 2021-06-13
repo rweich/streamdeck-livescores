@@ -1,14 +1,15 @@
-import { assertType } from '@rweich/streamdeck-ts';
-import { AxiosInstance } from 'axios';
-import { setup } from 'axios-cache-adapter';
-import { requestLogger, responseLogger, setGlobalConfig } from 'axios-logger';
-import PQueue from 'p-queue';
-import { Logger } from 'ts-log';
 import { MatchDataInterface, MatchDataType } from './types/MatchDataType';
+import { requestLogger, responseLogger, setGlobalConfig } from 'axios-logger';
+
+import { AxiosInstance } from 'axios';
+import { Logger } from 'ts-log';
 import { MatchDaySchema } from './types/MatchDayType';
+import PQueue from 'p-queue';
+import assertType from '../../AssertType';
+import { setup } from 'axios-cache-adapter';
 
 export default class Api {
-  private static axiosInstance: AxiosInstance | null = null;
+  private static axiosInstance: AxiosInstance | undefined;
   private readonly logger: Logger;
   private readonly queue: PQueue;
 
@@ -40,7 +41,7 @@ export default class Api {
   }
 
   private getAxiosInstance(): AxiosInstance {
-    if (Api.axiosInstance === null) {
+    if (Api.axiosInstance === undefined) {
       Api.axiosInstance = this.createAxiosInstance();
     }
     return Api.axiosInstance;
@@ -48,14 +49,14 @@ export default class Api {
 
   private createAxiosInstance(): AxiosInstance {
     const instance = setup({
-      headers: { ContentType: 'application/json' },
       cache: {
         maxAge: 20 * 1000,
       },
+      headers: { ContentType: 'application/json' },
     });
     setGlobalConfig({
-      prefixText: 'Api',
       logger: this.logger.info.bind(this),
+      prefixText: 'Api',
     });
     instance.interceptors.request.use(requestLogger);
     instance.interceptors.response.use(responseLogger);
