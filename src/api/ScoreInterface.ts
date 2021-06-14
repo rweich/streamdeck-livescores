@@ -1,5 +1,6 @@
 interface TeamInterface {
   name: string;
+  shortName: string;
   iconUrl: string;
   points: number;
 }

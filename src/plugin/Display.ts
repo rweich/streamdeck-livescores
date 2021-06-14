@@ -1,3 +1,4 @@
+import ContextData from './ContextData';
 import ImageLoader from './ImageLoader';
 import { Logger } from 'ts-log';
 import { Plugin } from '@rweich/streamdeck-ts';
@@ -48,27 +49,41 @@ export default class Display {
     return image;
   }
 
-  public displayMatch(data: ScoreInterface, pluginContext: string): void {
-    this.logger.info('displayMatch', pluginContext, data);
-    Promise.all([this.loadImageOrDefault(data.team1.iconUrl, 'A'), this.loadImageOrDefault(data.team2.iconUrl, 'B')])
-      .then((images) => {
+  public displayMatch(data: ScoreInterface, contextData: ContextData): void {
+    this.logger.info('displayMatch', contextData.context, data);
+
+    this.logger.debug('creating image');
+    const canvas = Display.createCanvas(144, 144);
+    const context = canvas.getContext('2d');
+    if (context === null) {
+      throw new Error('could not create 2d context in canvas');
+    }
+
+    this.addScore(data, context);
+    let promise;
+
+    if (contextData.shouldShowIcon()) {
+      promise = Promise.all([
+        this.loadImageOrDefault(data.team1.iconUrl, 'A'),
+        this.loadImageOrDefault(data.team2.iconUrl, 'B'),
+      ]).then((images) => {
         if (images.length !== 2) {
           this.logger.error('wrong number of images', images);
-          return;
-        }
-        this.logger.debug('creating image');
-        const canvas = Display.createCanvas(144, 144);
-        const context = canvas.getContext('2d');
-        if (context === null) {
-          return images;
+          throw new Error('wrong number of images');
         }
 
         context.drawImage(images[0], 20, 20, 40, 40);
         context.drawImage(images[1], 84, 20, 40, 40);
-        this.addText(data, context);
+        return true;
+      });
+    } else {
+      this.addShortName(data, context);
+      promise = Promise.resolve();
+    }
 
-        this.plugin.setImage(canvas.toDataURL('image/png'), pluginContext);
-        return images;
+    promise
+      .finally(() => {
+        this.plugin.setImage(canvas.toDataURL('image/png'), contextData.context);
       })
       .catch((error) => this.logger.error(error));
   }
@@ -82,8 +97,8 @@ export default class Display {
     });
   }
 
-  private addText(data: ScoreInterface, context: CanvasRenderingContext2D): void {
-    this.logger.debug('addText');
+  private addScore(data: ScoreInterface, context: CanvasRenderingContext2D): void {
+    this.logger.debug('addScore');
     if (data.matchIs.notStarted) {
       const date = dayjs(data.startDate);
       context.font = '24px sans-serif';
@@ -101,5 +116,13 @@ export default class Display {
       context.fillStyle = '#f76363';
     }
     context.fillText(data.team1.points + ' : ' + data.team2.points, 72, 120, 144);
+  }
+
+  private addShortName(data: ScoreInterface, context: CanvasRenderingContext2D): void {
+    this.logger.debug('addShortName');
+    context.fillStyle = 'white';
+    context.font = '24px sans-serif';
+    context.textAlign = 'center';
+    context.fillText(data.team1.shortName + ' - ' + data.team2.shortName, 72, 50, 144);
   }
 }
