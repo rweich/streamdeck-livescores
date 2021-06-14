@@ -87,7 +87,7 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
   }
 
   private updateFinishedMatchdayResults(result: ScoreInterface | undefined): ScoreInterface | undefined {
-    if (!result || result.matchIs.finished) {
+    if (!result || !result.matchIs.finished) {
       return result;
     }
     this.logger.debug(
