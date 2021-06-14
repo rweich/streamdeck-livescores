@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/rweich/streamdeck-livescores/compare/v2.0.0...v2.1.0) (2021-06-14)
+
+
+### Features
+
+* show team shortnames on click ([9ae5aac](https://github.com/rweich/streamdeck-livescores/commit/9ae5aacefa612c126654a704b702a0a596d6c1f0))
+
+
+### Bug Fixes
+
+* detection for finished matches ([a6d6814](https://github.com/rweich/streamdeck-livescores/commit/a6d68143b8c4c796cac341d02407acd13c2ccabe))
+
 ## [2.0.0](https://github.com/rweich/streamdeck-livescores/compare/v1.0.0...v2.0.0) (2021-06-14)
 
 
