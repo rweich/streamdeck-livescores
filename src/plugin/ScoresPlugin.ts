@@ -2,6 +2,7 @@ import ApiRegistry from '../api/ApiRegistry';
 import ContextData from './ContextData';
 import { DidReceiveSettingsEvent } from '@rweich/streamdeck-events/dist/Events/Received';
 import Display from './Display';
+import { KeyDownEvent } from '@rweich/streamdeck-events/dist/Events/Received/Plugin';
 import { Logger } from 'ts-log';
 import { Plugin } from '@rweich/streamdeck-ts';
 import { PluginSettingsSchema } from '../SettingsType';
@@ -27,6 +28,16 @@ export default class ScoresPlugin {
       this.plugin.getSettings(event.context);
     });
     this.plugin.on('didReceiveSettings', (event) => this.onDidReceiveSettings(event));
+    this.plugin.on('keyDown', (event) => this.onKeyDown(event));
+  }
+
+  private onKeyDown(event: KeyDownEvent): void {
+    this.logger.debug('got keydown event', event.context, event.row, event.column);
+    const contextData = this.contextData.get(event.context);
+    if (contextData !== undefined) {
+      contextData.toggleDisplayState();
+      this.updateMatchData(contextData);
+    }
   }
 
   private onDidReceiveSettings(event: DidReceiveSettingsEvent): void {
@@ -81,7 +92,7 @@ export default class ScoresPlugin {
         if (matchData === undefined) {
           return;
         }
-        this.display.displayMatch(matchData, contextData.context);
+        this.display.displayMatch(matchData, contextData);
         if (onSuccess) {
           onSuccess(matchData);
         }

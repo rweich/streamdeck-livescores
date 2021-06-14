@@ -39,11 +39,13 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
         iconUrl: data.Team1.TeamIconUrl,
         name: data.Team1.TeamName,
         points: finalResult?.PointsTeam1 || 0,
+        shortName: data.Team1.ShortName,
       },
       team2: {
         iconUrl: data.Team2.TeamIconUrl,
         name: data.Team2.TeamName,
         points: finalResult?.PointsTeam2 || 0,
+        shortName: data.Team2.ShortName,
       },
     };
     if (result.matchIs.running) {
