@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [2.1.1](https://github.com/rweich/streamdeck-livescores/compare/v2.1.0...v2.1.1) (2021-08-05)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump tar from 6.1.0 to 6.1.6 ([6a47be8](https://github.com/rweich/streamdeck-livescores/commit/6a47be8e4fe9a562153c3c00fcf6215348c34521))
+
 ## [2.1.0](https://github.com/rweich/streamdeck-livescores/compare/v2.0.0...v2.1.0) (2021-06-14)
 
 
