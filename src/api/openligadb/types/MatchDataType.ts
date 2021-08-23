@@ -37,7 +37,7 @@ export const MatchDataType = Type.Object({
       PointsTeam2: Type.Number(),
       ResultOrderID: Type.Number(),
       ResultTypeID: Type.Number(),
-      ResultDescription: Type.String(),
+      ResultDescription: Type.Union([Type.String(), Type.Null()]),
     }),
   ),
   Goals: Type.Array(
