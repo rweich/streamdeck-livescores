@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [2.1.2](https://github.com/rweich/streamdeck-livescores/compare/v2.1.1...v2.1.2) (2021-08-23)
+
+
+### Bug Fixes
+
+* matchdata schema for openligadb ([0392e92](https://github.com/rweich/streamdeck-livescores/commit/0392e920e68147f6d747ab5b614e967e72e314cd))
+
 ### [2.1.1](https://github.com/rweich/streamdeck-livescores/compare/v2.1.0...v2.1.1) (2021-08-05)
 
 
