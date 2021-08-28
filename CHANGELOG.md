@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [2.1.3](https://github.com/rweich/streamdeck-livescores/compare/v2.1.2...v2.1.3) (2021-08-28)
+
+
+### Code Refactoring
+
+* extract formbuilder code ([ce0b04f](https://github.com/rweich/streamdeck-livescores/commit/ce0b04fb988e4f2dd329034c9f968767dd8a583d))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump jszip from 3.6.0 to 3.7.1 ([91b224d](https://github.com/rweich/streamdeck-livescores/commit/91b224d2c44d89584fc288981fb604ab3c0d5c77))
+
 ### [2.1.2](https://github.com/rweich/streamdeck-livescores/compare/v2.1.1...v2.1.2) (2021-08-23)
 
 
