@@ -1,8 +1,7 @@
 import { FormSettingsType, PluginSettingsType } from './SettingsType';
 
 import ApiRegistry from './api/ApiRegistry';
-import { EventsEnum } from './formbuilder/EventsEnum';
-import FormBuilder from './formbuilder/FormBuilder';
+import { FormBuilder } from '@rweich/streamdeck-formbuilder';
 import { Logger } from 'ts-log';
 import PropertyInspector from '@rweich/streamdeck-ts/dist/PropertyInspector';
 import { is } from 'ts-type-guards';
@@ -28,7 +27,7 @@ export default class PiHandler {
       apiSelector.addOption(factory.apiName, factory.apiKey);
     }
     this.formBuilder.addElement('apiKey', apiSelector);
-    this.formBuilder.on(EventsEnum.CHANGE_SETTINGS, () => {
+    this.formBuilder.on('change-settings', () => {
       const formData = this.formBuilder.getFormData();
       Array.from(this.apiFormContainer.children, (c) => c.remove());
       this.logger.info('got changesettings event', formData);

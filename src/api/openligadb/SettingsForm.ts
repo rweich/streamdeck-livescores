@@ -1,7 +1,6 @@
 import { SettingsLeagueEnum, SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
 
-import { EventsEnum } from '../../formbuilder/EventsEnum';
-import FormBuilder from '../../formbuilder/FormBuilder';
+import { FormBuilder } from '@rweich/streamdeck-formbuilder';
 import SettingsFormInterface from '../SettingsFormInterface';
 import assertType from '../../AssertType';
 
@@ -25,7 +24,7 @@ export default class SettingsForm implements SettingsFormInterface {
   }
 
   public onChangeSettings(callback: (formData: unknown) => void): void {
-    this.formBuilder.on(EventsEnum.CHANGE_SETTINGS, () => callback(this.formBuilder.getFormData()));
+    this.formBuilder.on('change-settings', () => callback(this.formBuilder.getFormData()));
   }
 
   public appendSettingsTo(element: HTMLElement): void {
