@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [2.1.4](https://github.com/rweich/streamdeck-livescores/compare/v2.1.3...v2.1.4) (2021-09-04)
+
+
+### Miscellaneous Chores
+
+* update dependencies ([2462c1d](https://github.com/rweich/streamdeck-livescores/commit/2462c1db775de1647c85759faf7495e36c6f85e9))
+
 ### [2.1.3](https://github.com/rweich/streamdeck-livescores/compare/v2.1.2...v2.1.3) (2021-08-28)
 
 
