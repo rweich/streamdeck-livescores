@@ -1,6 +1,7 @@
+import { RootLogger } from 'loglevel';
+
 import ApiRegistry from './ApiRegistry';
 import Factory from './openligadb/Factory';
-import { RootLogger } from 'loglevel';
 
 export default class ApiFactory {
   private readonly logger: RootLogger;

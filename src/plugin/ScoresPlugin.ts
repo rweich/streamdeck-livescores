@@ -1,13 +1,14 @@
-import ApiRegistry from '../api/ApiRegistry';
-import ContextData from './ContextData';
 import { DidReceiveSettingsEvent } from '@rweich/streamdeck-events/dist/Events/Received';
-import Display from './Display';
 import { KeyDownEvent } from '@rweich/streamdeck-events/dist/Events/Received/Plugin';
-import { Logger } from 'ts-log';
 import { Plugin } from '@rweich/streamdeck-ts';
-import { PluginSettingsSchema } from '../SettingsType';
+import { Logger } from 'ts-log';
+
+import ApiRegistry from '../api/ApiRegistry';
 import ScoreInterface from '../api/ScoreInterface';
 import assertType from '../AssertType';
+import { PluginSettingsSchema } from '../SettingsType';
+import ContextData from './ContextData';
+import Display from './Display';
 
 export default class ScoresPlugin {
   private plugin: Plugin;

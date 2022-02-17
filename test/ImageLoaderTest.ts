@@ -1,10 +1,10 @@
 import 'mocha';
 
+import { expect } from 'chai';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import sinon, { SinonSandbox } from 'sinon';
 
 import ImageLoader from '../src/plugin/ImageLoader';
-import { expect } from 'chai';
 
 const virtualConsole = new VirtualConsole();
 const window = new JSDOM('<!doctype html>', {

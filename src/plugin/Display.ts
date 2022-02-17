@@ -1,9 +1,10 @@
+import { Plugin } from '@rweich/streamdeck-ts';
+import dayjs from 'dayjs';
+import { Logger } from 'ts-log';
+
+import ScoreInterface from '../api/ScoreInterface';
 import ContextData from './ContextData';
 import ImageLoader from './ImageLoader';
-import { Logger } from 'ts-log';
-import { Plugin } from '@rweich/streamdeck-ts';
-import ScoreInterface from '../api/ScoreInterface';
-import dayjs from 'dayjs';
 
 export default class Display {
   private readonly plugin: Plugin;

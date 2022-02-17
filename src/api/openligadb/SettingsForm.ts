@@ -1,8 +1,8 @@
-import { SettingsLeagueEnum, SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
-
 import { FormBuilder } from '@rweich/streamdeck-formbuilder';
-import SettingsFormInterface from '../SettingsFormInterface';
+
 import assertType from '../../AssertType';
+import SettingsFormInterface from '../SettingsFormInterface';
+import { SettingsLeagueEnum, SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
 
 export default class SettingsForm implements SettingsFormInterface {
   private readonly settings: SettingsType;

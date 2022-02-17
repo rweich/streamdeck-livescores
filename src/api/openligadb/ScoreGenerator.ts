@@ -1,12 +1,12 @@
-import ScoreInterface, { MatchIsType } from '../ScoreInterface';
-import { SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
-
-import Api from './Api';
-import { Logger } from 'ts-log';
-import { MatchDataInterface } from './types/MatchDataType';
-import ScoreGeneratorInterface from '../ScoreGeneratorInterface';
-import assertType from '../../AssertType';
 import dayjs from 'dayjs';
+import { Logger } from 'ts-log';
+
+import assertType from '../../AssertType';
+import ScoreGeneratorInterface from '../ScoreGeneratorInterface';
+import ScoreInterface, { MatchIsType } from '../ScoreInterface';
+import Api from './Api';
+import { MatchDataInterface } from './types/MatchDataType';
+import { SettingsSchema, SettingsType, SettingsTypeEnum } from './types/SettingsType';
 
 export default class ScoreGenerator implements ScoreGeneratorInterface {
   private readonly api: Api;
