@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/rweich/streamdeck-livescores/compare/v2.1.4...v3.0.0) (2022-02-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* the minimum required version of node is now v14.17
+
+### Miscellaneous Chores
+
+* auto fix linter errors ([8c0b8e3](https://github.com/rweich/streamdeck-livescores/commit/8c0b8e37808960d1d57ebfb56f25dda36be2503e))
+* **deps:** bump follow-redirects from 1.14.3 to 1.14.7 ([4e95c8a](https://github.com/rweich/streamdeck-livescores/commit/4e95c8a3e41e8be93f08c1fa1a1724690d8e2f14))
+* **deps:** bump semver-regex from 3.1.2 to 3.1.3 ([80bb6f4](https://github.com/rweich/streamdeck-livescores/commit/80bb6f4254e61aa541e6d1b45876067eb34f55d1))
+* update dependency (major) ([1ef6604](https://github.com/rweich/streamdeck-livescores/commit/1ef6604117386df63c787af3cf04e323df27ddd4))
+* update the template from upstream ([0635a85](https://github.com/rweich/streamdeck-livescores/commit/0635a85cd00a08287c7950aff6b084742620a228))
+
 ### [2.1.4](https://github.com/rweich/streamdeck-livescores/compare/v2.1.3...v2.1.4) (2021-09-04)
 
 
