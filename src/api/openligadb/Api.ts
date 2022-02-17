@@ -1,12 +1,12 @@
-import { MatchDataInterface, MatchDataType } from './types/MatchDataType';
-import { requestLogger, responseLogger, setGlobalConfig } from 'axios-logger';
-
 import { AxiosInstance } from 'axios';
-import { Logger } from 'ts-log';
-import { MatchDaySchema } from './types/MatchDayType';
-import PQueue from 'p-queue';
-import assertType from '../../AssertType';
 import { setup } from 'axios-cache-adapter';
+import { requestLogger, responseLogger, setGlobalConfig } from 'axios-logger';
+import PQueue from 'p-queue';
+import { Logger } from 'ts-log';
+
+import assertType from '../../AssertType';
+import { MatchDataInterface, MatchDataType } from './types/MatchDataType';
+import { MatchDaySchema } from './types/MatchDayType';
 
 export default class Api {
   private static axiosInstance: AxiosInstance | undefined;

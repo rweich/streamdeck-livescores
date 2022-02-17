@@ -1,10 +1,11 @@
-import Api from './Api';
-import FactoryInterface from '../FactoryInterface';
 import { Logger } from 'ts-log';
-import ScoreGenerator from './ScoreGenerator';
+
+import FactoryInterface from '../FactoryInterface';
 import ScoreGeneratorInterface from '../ScoreGeneratorInterface';
-import SettingsForm from './SettingsForm';
 import SettingsFormInterface from '../SettingsFormInterface';
+import Api from './Api';
+import ScoreGenerator from './ScoreGenerator';
+import SettingsForm from './SettingsForm';
 
 export default class Factory implements FactoryInterface {
   public readonly apiKey = 'openligadb';

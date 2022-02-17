@@ -1,9 +1,9 @@
 import 'mocha';
 
 import { expect, use } from 'chai';
+import jsonschema from 'chai-json-schema';
 
 import { MatchDataType } from '../../src/api/openligadb/types/MatchDataType';
-import jsonschema from 'chai-json-schema';
 import matchdataBeforeStart from './fixtures/matchdata.beforestart.json';
 import matchdataFinished from './fixtures/matchdata.finished.json';
 import matchdataFinishedPenalty from './fixtures/matchdata.finnished.penalty-shootout.json';

@@ -1,10 +1,10 @@
-import { FormSettingsType, PluginSettingsType } from './SettingsType';
+import { FormBuilder } from '@rweich/streamdeck-formbuilder';
+import PropertyInspector from '@rweich/streamdeck-ts/dist/PropertyInspector';
+import { Logger } from 'ts-log';
+import { is } from 'ts-type-guards';
 
 import ApiRegistry from './api/ApiRegistry';
-import { FormBuilder } from '@rweich/streamdeck-formbuilder';
-import { Logger } from 'ts-log';
-import PropertyInspector from '@rweich/streamdeck-ts/dist/PropertyInspector';
-import { is } from 'ts-type-guards';
+import { FormSettingsType, PluginSettingsType } from './SettingsType';
 
 export default class PiHandler {
   private readonly pi: PropertyInspector;

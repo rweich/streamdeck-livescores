@@ -1,10 +1,10 @@
-import { PluginSettingsSchema, PluginSettingsType } from './SettingsType';
+import { Streamdeck } from '@rweich/streamdeck-ts';
 
 import ApiFactory from './api/ApiFactory';
-import PiHandler from './PiHandler';
-import { Streamdeck } from '@rweich/streamdeck-ts';
 import assertType from './AssertType';
 import logger from './Logger';
+import PiHandler from './PiHandler';
+import { PluginSettingsSchema, PluginSettingsType } from './SettingsType';
 
 const pi = new Streamdeck(logger.getLogger('streamdeck')).propertyinspector();
 
