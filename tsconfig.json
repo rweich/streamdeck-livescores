@@ -19,9 +19,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
-  },
-  "ts-node": {
-    "transpileOnly": true
+    "resolveJsonModule": true,
+    "noEmit": true
   }
 }
