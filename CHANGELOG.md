@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [3.0.1](https://github.com/rweich/streamdeck-livescores/compare/v3.0.0...v3.0.1) (2022-03-29)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump minimist from 1.2.5 to 1.2.6 ([49c0f91](https://github.com/rweich/streamdeck-livescores/commit/49c0f914a1d512981a6d1213d2c6b69a2e7d2fff))
+
 ## [3.0.0](https://github.com/rweich/streamdeck-livescores/compare/v2.1.4...v3.0.0) (2022-02-17)
 
 
