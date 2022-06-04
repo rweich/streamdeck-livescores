@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [3.0.2](https://github.com/rweich/streamdeck-livescores/compare/v3.0.1...v3.0.2) (2022-06-04)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump npm from 8.5.0 to 8.12.0 ([58c69fd](https://github.com/rweich/streamdeck-livescores/commit/58c69fd54bcc0b02d4bb023f180aed5f0ce6dc43))
+* **deps:** bump semver-regex from 3.1.3 to 3.1.4 ([bb662a5](https://github.com/rweich/streamdeck-livescores/commit/bb662a542044c11629b98aefccb9c48665eedf44))
+
 ### [3.0.1](https://github.com/rweich/streamdeck-livescores/compare/v3.0.0...v3.0.1) (2022-03-29)
 
 
