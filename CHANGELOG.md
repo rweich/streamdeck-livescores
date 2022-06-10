@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [3.0.3](https://github.com/rweich/streamdeck-livescores/compare/v3.0.2...v3.0.3) (2022-06-10)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump semantic-release from 19.0.2 to 19.0.3 ([2907e5f](https://github.com/rweich/streamdeck-livescores/commit/2907e5f5582e32f027c71a165481ccb2e5da3efa))
+
 ### [3.0.2](https://github.com/rweich/streamdeck-livescores/compare/v3.0.1...v3.0.2) (2022-06-04)
 
 
