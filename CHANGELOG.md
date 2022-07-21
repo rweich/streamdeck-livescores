@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [3.0.4](https://github.com/rweich/streamdeck-livescores/compare/v3.0.3...v3.0.4) (2022-07-21)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump terser from 5.10.0 to 5.14.2 ([a9736a8](https://github.com/rweich/streamdeck-livescores/commit/a9736a8ee21de4b68c660a0d26747e2adeca4a2a))
+
 ### [3.0.3](https://github.com/rweich/streamdeck-livescores/compare/v3.0.2...v3.0.3) (2022-06-10)
 
 
