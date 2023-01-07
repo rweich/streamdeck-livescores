@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [3.0.5](https://github.com/rweich/streamdeck-livescores/compare/v3.0.4...v3.0.5) (2023-01-07)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump json5 from 1.0.1 to 1.0.2 ([9c64cb5](https://github.com/rweich/streamdeck-livescores/commit/9c64cb5c64e709dca6c53b96fdaf1b035a07877a))
+* **deps:** bump loader-utils from 1.4.0 to 1.4.2 ([4f833dd](https://github.com/rweich/streamdeck-livescores/commit/4f833ddfffd9b9ec5efdd184af96fca6a2211ad4))
+
 ### [3.0.4](https://github.com/rweich/streamdeck-livescores/compare/v3.0.3...v3.0.4) (2022-07-21)
 
 
