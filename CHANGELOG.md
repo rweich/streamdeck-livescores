@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/rweich/streamdeck-livescores/compare/v3.0.5...v3.0.6) (2023-02-04)
+
+
+### Bug Fixes
+
+* allow more endpoints for the release workflow ([6d5c9e3](https://github.com/rweich/streamdeck-livescores/commit/6d5c9e385569378a7e672d79aaad3383a751ff92))
+
+
+### Miscellaneous Chores
+
+* set executable flags for the githooks ([f3d44dc](https://github.com/rweich/streamdeck-livescores/commit/f3d44dc454a82e2546834a0eee481642304461b0))
+* update dependencies ([6fcc4ef](https://github.com/rweich/streamdeck-livescores/commit/6fcc4eff2b34e5963134a3ab00b8ced481cb27f2))
+* update template from upstream ([d490df0](https://github.com/rweich/streamdeck-livescores/commit/d490df029c3c0e4968e5b0b836bda2bba24dd961))
+
 ### [3.0.5](https://github.com/rweich/streamdeck-livescores/compare/v3.0.4...v3.0.5) (2023-01-07)
 
 
