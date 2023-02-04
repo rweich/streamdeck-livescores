@@ -1,3 +1,3 @@
-import propertyinspector from '../../src/PropertyInspector';
+import propertyinspector from '../../src/Propertyinspector';
 
 export default propertyinspector.createStreamdeckConnector();

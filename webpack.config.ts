@@ -1,6 +1,7 @@
+import * as path from 'node:path';
+
 import copyWebpackPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import * as path from 'node:path';
 import * as webpack from 'webpack';
 
 import { createDevelopmentManifest, manifestNs } from './build/scripts/manifest';
@@ -12,11 +13,10 @@ const config = (environment: unknown, options: { mode: string; env: unknown }): 
     pluginNs = 'dev.' + manifestNs;
   }
 
-  /* eslint-disable sort-keys */
   return {
     entry: {
       plugin: './build/entries/PluginEntry.ts',
-      propertyinspector: './build/entries/PropertyInspectorEntry.ts',
+      propertyinspector: './build/entries/PropertyinspectorEntry.ts',
     },
     target: 'web',
     output: {
@@ -79,7 +79,6 @@ const config = (environment: unknown, options: { mode: string; env: unknown }): 
       splitChunks: {},
     },
   };
-  /* eslint-enable sort-keys */
 };
 
 export default config;
