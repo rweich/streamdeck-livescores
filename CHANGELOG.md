@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/rweich/streamdeck-livescores/compare/v3.0.6...v3.0.7) (2023-07-29)
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump webpack from 5.75.0 to 5.76.0 ([6ab941e](https://github.com/rweich/streamdeck-livescores/commit/6ab941e0c1f78279db690eb5bcb459a79cb56677))
+* **deps:** bump semver from 5.7.1 to 5.7.2 ([f55779f](https://github.com/rweich/streamdeck-livescores/commit/f55779fdbfd12d7fde45c677f786c09951b0d6c8))
+* **deps:** bump tough-cookie from 4.1.2 to 4.1.3 ([c4dcd43](https://github.com/rweich/streamdeck-livescores/commit/c4dcd43cee012d146722274616c89983e6ee45b4))
+* **deps:** bump word-wrap from 1.2.3 to 1.2.4 ([14cdbee](https://github.com/rweich/streamdeck-livescores/commit/14cdbee6753472a41b58aa7a20b786011db9da60))
+
 ## [3.0.6](https://github.com/rweich/streamdeck-livescores/compare/v3.0.5...v3.0.6) (2023-02-04)
 
 
