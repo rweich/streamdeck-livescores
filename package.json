@@ -81,7 +81,7 @@
     "webpack-cli": "^5.0.1"
   },
   "engines": {
-    "node": ">=14.17"
+    "node": ">=16"
   },
   "repository": "rweich/streamdeck-livescores",
   "bugs": "https://github.com/rweich/streamdeck-livescores/issues",
