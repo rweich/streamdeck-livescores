@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/rweich/streamdeck-livescores/compare/v3.0.7...v4.0.0) (2023-08-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* no more node14
+
+### Features
+
+* update url/specs to match new openliga db api ([7abbeaf](https://github.com/rweich/streamdeck-livescores/commit/7abbeaf77548e829b4cbe52f32717824695956bb))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump actions/checkout from 3.5.3 to 3.6.0 ([45b2261](https://github.com/rweich/streamdeck-livescores/commit/45b22615383c148824e3e629c171be4f8dbdd5d3))
+* drop node14 support ([1d840e5](https://github.com/rweich/streamdeck-livescores/commit/1d840e5a51ba5180ed4327e67eb332c95b39d724))
+* update eslint-config & minor deps ([0c4b8d1](https://github.com/rweich/streamdeck-livescores/commit/0c4b8d1345d70560d756b1977253a4f201812b1e))
+
 ## [3.0.7](https://github.com/rweich/streamdeck-livescores/compare/v3.0.6...v3.0.7) (2023-07-29)
 
 
