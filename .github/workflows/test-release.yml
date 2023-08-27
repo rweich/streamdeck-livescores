@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5 # 2.0.0
+      - uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # 2.5.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -24,14 +24,14 @@ jobs:
             registry.npmjs.org:443
 
       - name: Get branch name
-        uses: tj-actions/branch-names@a594c1e96eab7790611fdaf5bc8f76ea55cedabd # 6.3
+        uses: tj-actions/branch-names@2e5354c6733793113f416314375826df030ada23 # 6.5
         id: branch-name
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # 3.1.0
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # 3.6.0
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@8f6ceb9d5aae5578b1dcda6af00008235204e7fa # 3.2
+        uses: cycjimmy/semantic-release-action@8e58d20d0f6c8773181f43eb74d6a05e3099571d # 3.4.2
         id: semantic
         with:
           dry_run: true
@@ -48,6 +48,23 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Test Outputs
-        if: steps.semantic.outputs.new_release_published == 'true'
         run: |
-          echo release version: ${{ steps.semantic.outputs.new_release_version }}
+          cat <<EOO >> $GITHUB_STEP_SUMMARY
+            ---
+
+            ### Semantic release output (DRY-RUN)
+
+            <table>
+              <tr><th>published</th><td>${{ steps.semantic.outputs.new_release_published }}</td></tr>
+              <tr><th>last release</th><td>${{ steps.semantic.outputs.last_release_version }}</td></tr>
+              <tr><th>next release</th><td>${{ steps.semantic.outputs.new_release_version }}</td></tr>
+            </table>
+
+            ---
+
+            #### Release-Notes
+
+            ${{ steps.semantic.outputs.new_release_notes }}
+
+          ---
+          EOO
