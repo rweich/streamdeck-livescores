@@ -1,65 +1,65 @@
 {
-  "MatchID": 58781,
-  "MatchDateTime": "2021-02-28T15:30:00",
-  "TimeZoneID": "W. Europe Standard Time",
-  "LeagueId": 4442,
-  "LeagueName": "1. Fußball-Bundesliga 2020/2021",
-  "MatchDateTimeUTC": "2021-02-28T14:30:00Z",
-  "Group": {
-    "GroupName": "23. Spieltag",
-    "GroupOrderID": 23,
-    "GroupID": 36508
+  "matchID": 58781,
+  "matchDateTime": "2021-02-28T15:30:00",
+  "timeZoneID": "W. Europe Standard Time",
+  "leagueId": 4442,
+  "leagueName": "1. Fußball-Bundesliga 2020/2021",
+  "matchDateTimeUTC": "2021-02-28T14:30:00Z",
+  "group": {
+    "groupName": "23. Spieltag",
+    "groupOrderID": 23,
+    "groupID": 36508
   },
-  "Team1": {
-    "TeamId": 81,
-    "TeamName": "1. FSV Mainz 05",
-    "ShortName": "Mainz",
-    "TeamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Logo_Mainz_05.svg/1099px-Logo_Mainz_05.svg.png",
-    "TeamGroupName": null
+  "team1": {
+    "teamId": 81,
+    "teamName": "1. FSV Mainz 05",
+    "shortName": "Mainz",
+    "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Logo_Mainz_05.svg/1099px-Logo_Mainz_05.svg.png",
+    "teamGroupName": null
   },
-  "Team2": {
-    "TeamId": 95,
-    "TeamName": "FC Augsburg",
-    "ShortName": "Augsburg",
-    "TeamIconUrl": "https://upload.wikimedia.org/wikipedia/de/b/b5/Logo_FC_Augsburg.svg",
-    "TeamGroupName": null
+  "team2": {
+    "teamId": 95,
+    "teamName": "FC Augsburg",
+    "shortName": "Augsburg",
+    "teamIconUrl": "https://upload.wikimedia.org/wikipedia/de/b/b5/Logo_FC_Augsburg.svg",
+    "teamGroupName": null
   },
-  "LastUpdateDateTime": "2021-02-28T16:01:57.06",
-  "MatchIsFinished": false,
-  "MatchResults": [
+  "lastUpdateDateTime": "2021-02-28T16:01:57.06",
+  "matchIsFinished": false,
+  "matchResults": [
     {
-      "ResultID": 93925,
-      "ResultName": "Endergebnis",
-      "PointsTeam1": 0,
-      "PointsTeam2": 0,
-      "ResultOrderID": 1,
-      "ResultTypeID": 2,
-      "ResultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+      "resultID": 93925,
+      "resultName": "Endergebnis",
+      "pointsTeam1": 0,
+      "pointsTeam2": 0,
+      "resultOrderID": 1,
+      "resultTypeID": 2,
+      "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
     },
     {
-      "ResultID": 93926,
-      "ResultName": "Halbzeit",
-      "PointsTeam1": 0,
-      "PointsTeam2": 0,
-      "ResultOrderID": 2,
-      "ResultTypeID": 1,
-      "ResultDescription": "Zwischenstand zur Halbzeit"
+      "resultID": 93926,
+      "resultName": "Halbzeit",
+      "pointsTeam1": 0,
+      "pointsTeam2": 0,
+      "resultOrderID": 2,
+      "resultTypeID": 1,
+      "resultDescription": "Zwischenstand zur Halbzeit"
     }
   ],
-  "Goals": [
+  "goals": [
     {
-      "GoalID": 87826,
-      "ScoreTeam1": 0,
-      "ScoreTeam2": 1,
-      "MatchMinute": null,
-      "GoalGetterID": 0,
-      "GoalGetterName": "",
-      "IsPenalty": false,
-      "IsOwnGoal": false,
-      "IsOvertime": false,
-      "Comment": null
+      "goalID": 87826,
+      "scoreTeam1": 0,
+      "scoreTeam2": 1,
+      "matchMinute": null,
+      "goalGetterID": 0,
+      "goalGetterName": "",
+      "isPenalty": false,
+      "isOwnGoal": false,
+      "isOvertime": false,
+      "comment": null
     }
   ],
-  "Location": null,
-  "NumberOfViewers": null
+  "location": null,
+  "numberOfViewers": null
 }
