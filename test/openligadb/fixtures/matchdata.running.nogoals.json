@@ -1,52 +1,52 @@
 {
-  "MatchID": 58782,
-  "MatchDateTime": "2021-02-27T18:30:00",
-  "TimeZoneID": "W. Europe Standard Time",
-  "LeagueId": 4442,
-  "LeagueName": "1. Fußball-Bundesliga 2020/2021",
-  "MatchDateTimeUTC": "2021-02-27T17:30:00Z",
-  "Group": {
-    "GroupName": "23. Spieltag",
-    "GroupOrderID": 23,
-    "GroupID": 36508
+  "matchID": 58782,
+  "matchDateTime": "2021-02-27T18:30:00",
+  "timeZoneID": "W. Europe Standard Time",
+  "leagueId": 4442,
+  "leagueName": "1. Fußball-Bundesliga 2020/2021",
+  "matchDateTimeUTC": "2021-02-27T17:30:00Z",
+  "group": {
+    "groupName": "23. Spieltag",
+    "groupOrderID": 23,
+    "groupID": 36508
   },
-  "Team1": {
-    "TeamId": 1635,
-    "TeamName": "RB Leipzig",
-    "ShortName": "Leipzig",
-    "TeamIconUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RB_Leipzig_2014_logo.svg/800px-RB_Leipzig_2014_logo.svg.png",
-    "TeamGroupName": null
+  "team1": {
+    "teamId": 1635,
+    "teamName": "RB Leipzig",
+    "shortName": "Leipzig",
+    "teamIconUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RB_Leipzig_2014_logo.svg/800px-RB_Leipzig_2014_logo.svg.png",
+    "teamGroupName": null
   },
-  "Team2": {
-    "TeamId": 87,
-    "TeamName": "Borussia Mönchengladbach",
-    "ShortName": "Gladbach",
-    "TeamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Borussia_Mönchengladbach_logo.svg",
-    "TeamGroupName": null
+  "team2": {
+    "teamId": 87,
+    "teamName": "Borussia Mönchengladbach",
+    "shortName": "Gladbach",
+    "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Borussia_Mönchengladbach_logo.svg",
+    "teamGroupName": null
   },
-  "LastUpdateDateTime": "2021-02-27T18:30:55.29",
-  "MatchIsFinished": false,
-  "MatchResults": [
+  "lastUpdateDateTime": "2021-02-27T18:30:55.29",
+  "matchIsFinished": false,
+  "matchResults": [
     {
-      "ResultID": 93911,
-      "ResultName": "Endergebnis",
-      "PointsTeam1": 0,
-      "PointsTeam2": 0,
-      "ResultOrderID": 1,
-      "ResultTypeID": 2,
-      "ResultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
+      "resultID": 93911,
+      "resultName": "Endergebnis",
+      "pointsTeam1": 0,
+      "pointsTeam2": 0,
+      "resultOrderID": 1,
+      "resultTypeID": 2,
+      "resultDescription": "Ergebnis nach Ende der offiziellen Spielzeit"
     },
     {
-      "ResultID": 93912,
-      "ResultName": "Halbzeit",
-      "PointsTeam1": 0,
-      "PointsTeam2": 0,
-      "ResultOrderID": 2,
-      "ResultTypeID": 1,
-      "ResultDescription": "Zwischenstand zur Halbzeit"
+      "resultID": 93912,
+      "resultName": "Halbzeit",
+      "pointsTeam1": 0,
+      "pointsTeam2": 0,
+      "resultOrderID": 2,
+      "resultTypeID": 1,
+      "resultDescription": "Zwischenstand zur Halbzeit"
     }
   ],
-  "Goals": [],
-  "Location": null,
-  "NumberOfViewers": null
+  "goals": [],
+  "location": null,
+  "numberOfViewers": null
 }

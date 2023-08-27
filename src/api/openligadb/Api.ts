@@ -21,7 +21,7 @@ export default class Api {
   public fetchMatchData(matchId: string): Promise<MatchDataInterface> {
     return this.queue.add(() =>
       this.getAxiosInstance()
-        .get('https://www.openligadb.de/api/getmatchdata/' + matchId)
+        .get('https://api.openligadb.de/getmatchdata/' + matchId)
         .then((response) => {
           assertType(MatchDataType, response.data);
           return response.data;
@@ -32,7 +32,7 @@ export default class Api {
   public fetchMatchDay(league: string): Promise<MatchDataInterface[]> {
     return this.queue.add(() =>
       this.getAxiosInstance()
-        .get('https://www.openligadb.de/api/getmatchdata/' + league)
+        .get('https://api.openligadb.de/getmatchdata/' + league)
         .then((response) => {
           assertType(MatchDaySchema, response.data);
           return response.data;

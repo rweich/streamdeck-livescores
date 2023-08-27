@@ -27,25 +27,25 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
   }
 
   private static getFinalResult(data: MatchDataInterface) {
-    return data.MatchResults.find((result) => result.ResultTypeID === 2);
+    return data.matchResults.find((result) => result.resultTypeID === 2);
   }
 
   private static convertToMatchResult(data: MatchDataInterface): ScoreInterface {
     const finalResult = ScoreGenerator.getFinalResult(data);
     const result: ScoreInterface = {
       matchIs: ScoreGenerator.convertMatchIs(data),
-      startDate: new Date(data.MatchDateTimeUTC),
+      startDate: new Date(data.matchDateTimeUTC),
       team1: {
-        iconUrl: data.Team1.TeamIconUrl,
-        name: data.Team1.TeamName,
-        points: finalResult?.PointsTeam1 || 0,
-        shortName: data.Team1.ShortName,
+        iconUrl: data.team1.teamIconUrl,
+        name: data.team1.teamName,
+        points: finalResult?.pointsTeam1 || 0,
+        shortName: data.team1.shortName,
       },
       team2: {
-        iconUrl: data.Team2.TeamIconUrl,
-        name: data.Team2.TeamName,
-        points: finalResult?.PointsTeam2 || 0,
-        shortName: data.Team2.ShortName,
+        iconUrl: data.team2.teamIconUrl,
+        name: data.team2.teamName,
+        points: finalResult?.pointsTeam2 || 0,
+        shortName: data.team2.shortName,
       },
     };
     if (result.matchIs.running) {
@@ -57,17 +57,17 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
   }
 
   private static isMatchInFuture(data: MatchDataInterface): boolean {
-    return Date.parse(data.MatchDateTimeUTC) > Date.now();
+    return Date.parse(data.matchDateTimeUTC) > Date.now();
   }
 
   private static isMatchRunning(data: MatchDataInterface): boolean {
-    const startTS = Date.parse(data.MatchDateTimeUTC);
-    return startTS < Date.now() && !data.MatchIsFinished;
+    const startTS = Date.parse(data.matchDateTimeUTC);
+    return startTS < Date.now() && !data.matchIsFinished;
   }
 
   private static convertMatchIs(data: MatchDataInterface): MatchIsType {
     return {
-      finished: data.MatchIsFinished,
+      finished: data.matchIsFinished,
       notStarted: ScoreGenerator.isMatchInFuture(data),
       running: ScoreGenerator.isMatchRunning(data),
     };
