@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/rweich/streamdeck-livescores/compare/v4.0.0...v4.0.1) (2023-09-02)
+
+
+### Bug Fixes
+
+* matches not updating during game ([beafa5f](https://github.com/rweich/streamdeck-livescores/commit/beafa5f4f728a2e006da820ea64c3f70fc4ef744))
+* set the lastUpdateDateTime nullable ([57f8101](https://github.com/rweich/streamdeck-livescores/commit/57f810135b5b61222c3eca53770a9b33447c221d))
+
+
+### Miscellaneous Chores
+
+* improve validation error output ([bbe1ad3](https://github.com/rweich/streamdeck-livescores/commit/bbe1ad39ce893ee9ca217ff21050bad8fb347a01))
+
 ## [4.0.0](https://github.com/rweich/streamdeck-livescores/compare/v3.0.7...v4.0.0) (2023-08-27)
 
 
