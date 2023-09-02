@@ -1,5 +1,7 @@
 import { Static, Type } from '@sinclair/typebox';
 
+/** @see https://api.openligadb.de/ */
+
 /* eslint-disable sort-keys */
 export const MatchDataType = Type.Object({
   matchID: Type.Number(),
@@ -27,7 +29,7 @@ export const MatchDataType = Type.Object({
     teamIconUrl: Type.String(),
     teamGroupName: Type.Any(),
   }),
-  lastUpdateDateTime: Type.String(),
+  lastUpdateDateTime: Type.Union([Type.String(), Type.Null()]),
   matchIsFinished: Type.Boolean(),
   matchResults: Type.Array(
     Type.Object({
