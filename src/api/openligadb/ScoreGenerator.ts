@@ -82,7 +82,9 @@ export default class ScoreGenerator implements ScoreGeneratorInterface {
     if (settings.type === SettingsTypeEnum.MATCH_DAY) {
       return this.api
         .fetchMatchDay(settings.league)
-        .then((matches) => ScoreGenerator.convertToMatchResult(matches[Number.parseInt(settings.matchOfLeague) - 1]))
+        .then((matches) =>
+          this.createScoreForMatchId(String(matches[Number.parseInt(settings.matchOfLeague) - 1].matchID)),
+        )
         .then((result) => this.updateFinishedMatchdayResults(result));
     }
     return this.createScoreForMatchId(settings.matchId);
