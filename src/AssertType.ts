@@ -10,12 +10,10 @@ export default function assertType<T extends TSchema>(
   payload: unknown,
 ): asserts payload is Static<typeof type> {
   const ajv = new Ajv().addKeyword('kind').addKeyword('modifier');
-  if (!ajv.validate(type, payload)) {
+  const validate = ajv.compile(type);
+  if (!validate(payload)) {
     throw new ValidationError(
-      'error while validating payload: '
-        + ajv.errors?.map((error) => error.message).join(', ')
-        + ' payload: '
-        + JSON.stringify(payload),
+      'error while validating payload: ' + JSON.stringify(validate.errors) + ' payload: ' + JSON.stringify(payload),
     );
   }
 }
