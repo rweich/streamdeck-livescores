@@ -22,8 +22,9 @@ export default class Api {
     return this.queue.add(
       () =>
         this.getAxiosInstance()
-          .get('https://api.openligadb.de/getmatchdata/' + matchId)
+          .get('https://api.openligadb.de/getmatchdata/' + matchId, { cache: { maxAge: 60 * 60 * 1000 } })
           .then((response) => {
+            this.logger.debug('got response from cache?', response.request.fromCache === true);
             assertType(MatchDataType, response.data);
             return response.data;
           }),
