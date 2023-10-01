@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/rweich/streamdeck-livescores/compare/v4.0.1...v4.0.2) (2023-10-01)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump actions/checkout from 3.6.0 to 4.0.0 ([5cda604](https://github.com/rweich/streamdeck-livescores/commit/5cda60444fe6ee75d869a8860c052baf3de707e8))
+* **deps:** bump actions/checkout from 4.0.0 to 4.1.0 ([30b489d](https://github.com/rweich/streamdeck-livescores/commit/30b489d638636f7ccbf722d1985dbad86c831f5c))
+* **deps:** bump cycjimmy/semantic-release-action from 3.4.2 to 4.0.0 ([1e2ffca](https://github.com/rweich/streamdeck-livescores/commit/1e2ffcab7d3aa4d25e5ac001090f69e5630749ee))
+* **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([e141dd9](https://github.com/rweich/streamdeck-livescores/commit/e141dd9379bf8fc658defce1e37b441c35567418))
+
 ## [4.0.1](https://github.com/rweich/streamdeck-livescores/compare/v4.0.0...v4.0.1) (2023-09-02)
 
 
