@@ -23,7 +23,7 @@
     "@rweich/streamdeck-ts": "^5.0.0",
     "@sinclair/typebox": "^0.25.21",
     "ajv": "^8.5.0",
-    "axios": "^0.26.0",
+    "axios": "^1.6.0",
     "axios-cache-adapter": "^2.7.3",
     "axios-logger": "^2.5.0",
     "dayjs": "^1.10.5",
